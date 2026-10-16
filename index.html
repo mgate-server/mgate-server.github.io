@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MGate — Корпоративная автономная почтовая платформа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>MGate</span>
+        <span class="brand-badge">2026.10</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="/" class="active">Главная</a></li>
+          <li class="nav-item"><a href="/features/">Возможности</a></li>
+          <li class="nav-item"><a href="/docs/">Документация</a></li>
+          <li class="nav-item"><a href="/install/">Установка</a></li>
+          <li class="nav-item"><a href="/examples/">Примеры использования</a></li>
+          <li class="nav-item"><a href="/live-demo/">Live Demo</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демо стенды</a>
+        <a href="/install/" class="btn btn-primary btn-sm">Начать работу</a>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="pill-badge">
+          <span class="status-pulse-dot"></span>
+          <span>ENTERPRISE MAIL PLATFORM // CARRIER-GRADE</span>
+        </div>
+
+        <h1>
+          Современный суверенный почтовый сервер <br>
+          <span class="text-gradient">«под ключ» для вашей организации</span>
+        </h1>
+
+        <p class="hero-desc">
+          Полная независимость от зарубежных SaaS и громоздких устаревших монолитов. Высокопроизводительное ядро на <strong>Rust</strong>, связка <strong>Postfix MTA + Dovecot 2.4</strong>, интеллектуальный антиспам <strong>Rspamd</strong>, антивирус <strong>ClamAV</strong>, быстрый веб-интерфейс и панель администратора.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/install/" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Быстрый старт за 5 минут
+          </a>
+          <a href="/live-demo/" class="btn btn-secondary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Демо-стенды онлайн
+          </a>
+          <a href="/docs/" class="btn btn-outline btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            Документация
+          </a>
+        </div>
+
+        <!-- Terminal Quick Start Box -->
+        <div class="terminal-box" data-tabs-scope>
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-tabs" data-tabs>
+              <button class="term-tab active" data-tab-target="term-compose">Docker Compose</button>
+              <button class="term-tab" data-tab-target="term-helm">Kubernetes (Helm)</button>
+              <button class="term-tab" data-tab-target="term-aio">All-in-One (скоро)</button>
+            </div>
+            <button class="copy-btn" data-copy-target=".terminal-body .tab-pane.active pre code" title="Скопировать команду">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Копировать
+            </button>
+          </div>
+          <div class="terminal-body">
+            <div class="tab-pane active" id="term-compose" data-tab-content>
+              <pre><code><span class="comment"># 1. Клонирование репозитория развертывания MGate и переход на последний релиз</span>
+git clone https://github.com/mgate-server/mgate.git && cd mgate
+git checkout "$(git tag --sort=-v:refname | head -n 1)"
+
+<span class="comment"># 2. Автоматическая генерация конфигурации .env и надежных криптосекретов</span>
+make init
+
+<span class="comment"># 3. Укажите домен и e-mail администратора в .env (MGATE_HOSTNAME, MGATE_ADMIN_EMAIL)</span>
+nano .env
+
+<span class="comment"># 4. Загрузка образов (ghcr.io/mgate-server/*, публичные, без входа) и запуск стека</span>
+docker compose pull && docker compose up -d
+
+<span class="comment"># Готово! Веб-интерфейс и панель администратора доступны на https://mail.company.ru/admin</span></code></pre>
+            </div>
+            <div class="tab-pane" id="term-helm" data-tab-content>
+              <pre><code><span class="comment"># Установка в кластер Kubernetes через официальный Helm-чарт (из репозитория на последнем релизе)</span>
+cd mgate/deploy/helm/mgate
+helm install mgate . \
+  --namespace mgate --create-namespace \
+  --set config.hostname=mail.company.ru \
+  --set config.adminEmail=admin@company.ru</code></pre>
+            </div>
+            <div class="tab-pane" id="term-aio" data-tab-content>
+              <pre><code><span class="comment"># Компактный образ «всё в одном» (All-in-One) пока в разработке — скоро.</span>
+<span class="comment"># Сейчас используйте вкладки Docker Compose или Kubernetes (Helm).</span></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Ribbon -->
+        <div class="stats-ribbon">
+          <div class="stat-card">
+            <div class="stat-number">&lt; 0.5 с</div>
+            <div class="stat-label">Сквозная задержка доставки писем</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Суверенитет и On-Premise контроль</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">RSA-2048</div>
+            <div class="stat-label">Криптографическая защита DKIM</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">ASVS L2</div>
+            <div class="stat-label">Стандарт информационной безопасности</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Architecture Pipeline Diagram -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Архитектурный контур
+          </span>
+          <h2 class="section-title">Сквозной конвейер обработки и доставки почты</h2>
+          <p class="section-subtitle">
+            Изолированные службы, проверенные десятилетиями Unix-стандарты и высокоскоростная бизнес-логика на Rust.
+          </p>
+        </div>
+
+        <!-- Custom Styled SVG/HTML Pipeline Diagram -->
+        <div class="pipeline-diagram">
+          <div class="flow-chart">
+            <!-- Node 1 -->
+            <div class="flow-node">
+              <div class="flow-node-badge">01 // INBOUND GATEWAY :25</div>
+              <div class="flow-node-title">Postfix MTA</div>
+              <div class="flow-node-desc">SMTP :25 (входящие) / :465 / :587. Защита от ботов через postscreen.</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="flow-node">
+              <div class="flow-node-badge">02 // MILTER & SECURITY</div>
+              <div class="flow-node-title">Rspamd + ClamAV</div>
+              <div class="flow-node-desc">SPF/DKIM/DMARC валидация, байесовский скоринг и потоковый антивирус.</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="flow-node">
+              <div class="flow-node-badge">03 // CORE POLICY ENGINE</div>
+              <div class="flow-node-title">Rust Backend</div>
+              <div class="flow-node-desc">Postfix Policy Service (:8081), аутентификация Argon2id, лимиты и квоты.</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="flow-node">
+              <div class="flow-node-badge">04 // LMTP STORAGE</div>
+              <div class="flow-node-title">Dovecot LMTP</div>
+              <div class="flow-node-desc">Прием через LMTP, пользовательские Sieve-правила, запись в Maildir.</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+
+            <!-- Node 5 -->
+            <div class="flow-node">
+              <div class="flow-node-badge">05 // CLIENT ACCESS :443</div>
+              <div class="flow-node-title">Webmail & IMAP</div>
+              <div class="flow-node-desc">React SPA по HTTPS :443 и защищенный IMAPS :993 для Outlook/Thunderbird.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="/docs/#architecture" class="btn btn-outline btn-sm">
+            Подробное описание архитектуры в документации →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why MGate Section (Comparison with legacy solutions) -->
+    <section class="section container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Преимущества</span>
+        <h2 class="section-title">Почему компании выбирают MGate</h2>
+        <p class="section-subtitle">
+          Устаревшие почтовые системы требуют непомерных аппаратных ресурсов, подвержены критическим уязвимостям или привязывают вас к зарубежным провайдерам.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3>Эффективность по ресурсам</h3>
+          <p>
+            В отличие от MS Exchange или Zimbra, требующих десятки гигабайт RAM и тяжелый стек Java/.NET, MGate работает на стандартном Linux сервере от 2 vCPU и 4 GB RAM.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Безопасность OWASP ASVS L2</h3>
+          <p>
+            Хеширование паролей Argon2id, пароли приложений для почтовых клиентов, защита от брутфорса (Leaky Bucket rate limiter) и неизменяемый аудит-лог SHA-256.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3>Миграция с прежних серверов по IMAP</h3>
+          <p>
+            Встроенный мастер «Импорт и миграция»: фоновый перенос ящиков с Яндекс 360, Google Workspace, Mail.ru и любых IMAP-серверов — пакетно администратором или самим пользователем.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Matrix Table -->
+      <div class="matrix-wrap" style="margin-top: 48px;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Критерий оценки</th>
+              <th class="col-mgate" style="width: 30%;">MGate Platform</th>
+              <th style="width: 15%;">MS Exchange</th>
+              <th style="width: 15%;">Zimbra OSE</th>
+              <th style="width: 15%;">Mailcow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Бэкенд архитектура</strong></td>
+              <td class="col-mgate">
+                <span class="table-badge-success">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Скомпилированный Rust Core
+                </span>
+              </td>
+              <td><span class="table-badge-neutral">.NET / IIS</span></td>
+              <td><span class="table-badge-neutral">Java / Jetty</span></td>
+              <td><span class="table-badge-neutral">PHP / Nginx</span></td>
+            </tr>
+            <tr>
+              <td><strong>Минимальные требования</strong></td>
+              <td class="col-mgate">
+                <span class="table-badge-success">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  2 vCPU / 4 GB RAM
+                </span>
+              </td>
+              <td><span class="table-badge-neutral">8 vCPU / 32 GB</span></td>
+              <td><span class="table-badge-neutral">4 vCPU / 12 GB</span></td>
+              <td><span class="table-badge-neutral">2 vCPU / 4 GB</span></td>
+            </tr>
+            <tr>
+              <td><strong>Встроенная IMAP-миграция</strong></td>
+              <td class="col-mgate">
+                <span class="table-badge-success">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Есть: мастер миграции по IMAP
+                </span>
+              </td>
+              <td><span class="table-badge-neutral">Сторонний софт</span></td>
+              <td><span class="table-badge-neutral">Ручной imapsync</span></td>
+              <td><span class="table-badge-warn">Базовый syncjob</span></td>
+            </tr>
+            <tr>
+              <td><strong>Поддержка Kubernetes / Helm</strong></td>
+              <td class="col-mgate">
+                <span class="table-badge-success">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Официальный Helm-чарт
+                </span>
+              </td>
+              <td><span class="table-badge-neutral">Только Windows VM</span></td>
+              <td><span class="table-badge-neutral">Не поддерживается</span></td>
+              <td><span class="table-badge-neutral">Только Compose</span></td>
+            </tr>
+            <tr>
+              <td><strong>Шифрование паролей</strong></td>
+              <td class="col-mgate">
+                <span class="table-badge-success">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Argon2id (ASVS L2)
+                </span>
+              </td>
+              <td><span class="table-badge-neutral">NTLM / Kerberos</span></td>
+              <td><span class="table-badge-neutral">SHA-512</span></td>
+              <td><span class="table-badge-neutral">bcrypt / SHA-512</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Key Modules Overview -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Функциональность</span>
+          <h2 class="section-title">Все модули корпоративной почты</h2>
+          <p class="section-subtitle">
+            Полный набор инструментов для сотрудников, системных администраторов и специалистов по безопасности.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <h3>Быстрый Webmail SPA</h3>
+            <p>
+              Ветки писем (треды), мгновенный полнотекстовый поиск, вложения drag-and-drop, адресная книга контактов и темная тема.
+            </p>
+            <a href="/features/#webmail" class="card-link">Подробнее о Webmail →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <h3>Панель администратора</h3>
+            <p>
+              Управление доменами, ящиками, алиасами, квотами и рассылками. Живой инспектор очередей Postfix и real-time SSE-стриминг логов.
+            </p>
+            <a href="/features/#admin" class="card-link">Панель управления →</a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            </div>
+            <h3>Высокая доставляемость</h3>
+            <p>
+              Автоматическая генерация DKIM-ключа (RSA-2048) и ротация по кнопке, поддержка SPF, DMARC, ARC и мастер настройки DNS.
+            </p>
+            <a href="/features/#deliverability" class="card-link">Стандарты доставляемости →</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="/features/" class="btn btn-secondary btn-lg">
+            Открыть подробную презентацию всех возможностей платформы →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizing Calculator -->
+    <section class="section container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Калькулятор сайзинга</span>
+        <h2 class="section-title">Расчет требований к серверу под ваш объем почты</h2>
+        <p class="section-subtitle">
+          Укажите планируемое число почтовых ящиков для моментального расчета рекомендуемых аппаратных ресурсов.
+        </p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div class="calc-controls">
+            <div class="calc-field">
+              <label>
+                <span>Число почтовых ящиков:</span>
+                <span class="calc-val-badge" id="calcUsersDisplay">150 ящиков</span>
+              </label>
+              <input type="range" class="calc-slider" id="calcUsers" min="10" max="5000" step="10" value="150">
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 6px;">
+              <input type="checkbox" id="calcClamav" checked style="width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer;">
+              <label for="calcClamav" style="font-weight: 500; font-size: 0.95rem; cursor: pointer;">
+                Включить потоковый антивирус ClamAV
+              </label>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 10px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -2px; margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <strong>Совет по масштабированию:</strong> При объеме более 500 почтовых ящиков рекомендуется развертывание в Kubernetes (через Helm-чарт) с выносом архивных вложений в объектное S3-хранилище.
+            </div>
+          </div>
+
+          <div class="calc-results">
+            <div class="res-item">
+              <span class="res-label">Процессор (vCPU)</span>
+              <span class="res-val" id="calcCpu">4 vCPU</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">Оперативная память (RAM)</span>
+              <span class="res-val" id="calcRam">8 GB</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">Рекомендуемый накопитель</span>
+              <span class="res-val" id="calcDisk">120 GB NVMe</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">Топология</span>
+              <span class="res-val" id="calcTopology" style="font-size: 1.15rem; color: var(--primary);">Docker Compose (Production)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Stands Section -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Демонстрационные стенды</span>
+          <h2 class="section-title">Тестовое окружение платформы</h2>
+          <p class="section-subtitle">
+            Все узлы развернуты и доступны для проверки в реальном времени.
+          </p>
+        </div>
+
+        <div class="stand-grid">
+          <a href="https://pro.demo.mgate.pro" target="_blank" class="stand-card" style="border-color: var(--border-focus);">
+            <div class="stand-card-header">
+              <span class="stand-title" style="color: var(--primary);">Основной почтовый узел</span>
+              <span class="status-pulse-dot"></span>
+            </div>
+            <div class="stand-ip">pro.demo.mgate.pro</div>
+            <div class="stand-url">https://pro.demo.mgate.pro</div>
+          </a>
+
+          <a href="https://free.demo.mgate.pro" target="_blank" class="stand-card">
+            <div class="stand-card-header">
+              <span class="stand-title">Тестовый почтовый узел</span>
+              <span class="status-pulse-dot"></span>
+            </div>
+            <div class="stand-ip">free.demo.mgate.pro</div>
+            <div class="stand-url">https://free.demo.mgate.pro</div>
+          </a>
+
+          <a href="https://pro.demo.mgate.pro/mail" target="_blank" class="stand-card">
+            <div class="stand-card-header">
+              <span class="stand-title">Webmail Клиент</span>
+              <span class="status-pulse-dot"></span>
+            </div>
+            <div class="stand-ip">pro.demo.mgate.pro</div>
+            <div class="stand-url">https://pro.demo.mgate.pro/mail</div>
+          </a>
+
+          <a href="https://pro.demo.mgate.pro/admin" target="_blank" class="stand-card">
+            <div class="stand-card-header">
+              <span class="stand-title">Панель управления</span>
+              <span class="status-pulse-dot"></span>
+            </div>
+            <div class="stand-ip">pro.demo.mgate.pro</div>
+            <div class="stand-url">https://pro.demo.mgate.pro/admin</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 14px;">
+            <div class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span>MGate</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); max-width: 360px;">
+            Автономная корпоративная почтовая платформа нового поколения. Разработано с соблюдением требований OWASP ASVS L2.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/features/">Возможности</a></li>
+            <li><a href="/docs/">Документация</a></li>
+            <li><a href="/install/">Установка</a></li>
+            <li><a href="/examples/">Примеры использования</a></li>
+            <li><a href="/live-demo/">Live Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ресурсы</h4>
+          <ul class="footer-links">
+            <li><a href="/docs/#dns">Настройка DNS</a></li>
+            <li><a href="/docs/#ports">Справочник портов</a></li>
+            <li><a href="/docs/#env">Конфигурация .env</a></li>
+            <li><a href="/docs/#backup">Резервное копирование</a></li>
+            <li><a href="/docs/#cli">Управление через CLI</a></li>
+            <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
+            <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MGate Platform. Все права защищены.</div>
+        <div style="color: var(--text-dim);">Релизы: <a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">GitHub Releases</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

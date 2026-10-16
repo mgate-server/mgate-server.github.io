@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Установка и системные требования — MGate Installation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>MGate</span>
+        <span class="brand-badge">Install</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="/">Главная</a></li>
+          <li class="nav-item"><a href="/features/">Возможности</a></li>
+          <li class="nav-item"><a href="/docs/">Документация</a></li>
+          <li class="nav-item"><a href="/install/" class="active">Установка</a></li>
+          <li class="nav-item"><a href="/examples/">Примеры использования</a></li>
+          <li class="nav-item"><a href="/live-demo/">Live Demo</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демо стенды</a>
+        <a href="https://pro.demo.mgate.pro" class="btn btn-primary btn-sm" target="_blank" data-demo-href="pro_url">Вход в Pro</a>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 40px; padding-bottom: 90px;">
+    <!-- Intro -->
+    <div style="margin-bottom: 40px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px;">
+      <span class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        Быстрый старт
+      </span>
+      <h1 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px;">
+        Развертывание почтовой платформы MGate
+      </h1>
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 860px; line-height: 1.6;">
+        Пошаговое руководство по вводу сервера в эксплуатацию за 5 минут. Поддерживаются Docker Compose и Kubernetes (Helm); образ All-in-One — скоро.
+      </p>
+    </div>
+
+    <!-- Pre-flight Checklist -->
+    <section style="margin-bottom: 60px;">
+      <h2 class="section-title">Чеклист готовности сервера (Pre-flight Checklist)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        Перед установкой проверьте соответствие хоста требованиям для стабильной отправки почты:
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--accent-emerald); font-weight: 700; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div>
+              <strong>1. Публичный статический IPv4</strong>
+              <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Почтовый шлюз обязан иметь постоянный белый IP-адрес. Динамические пулы IP-адресов заблокированы в спам-базах по умолчанию.
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--accent-emerald); font-weight: 700; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div>
+              <strong>2. Открытый порт 25/TCP</strong>
+              <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Убедитесь, что ваш хостинг-провайдер не блокирует исходящий порт 25. Проверьте командой: <code>nc -zv -w 5 smtp.gmail.com 25</code>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--accent-emerald); font-weight: 700; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div>
+              <strong>3. Обратная зона rDNS (PTR)</strong>
+              <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                PTR-запись внешнего IP должна строго указывать на FQDN имя сервера (например, <code>mail.company.ru</code>).
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); display: flex; align-items: center; justify-content: center; color: var(--accent-emerald); font-weight: 700; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div>
+              <strong>4. Docker 25+ и Docker Compose v2.24+</strong>
+              <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Поддерживаются дистрибутивы Linux: Ubuntu 22.04 / 24.04 LTS, Debian 12, Rocky Linux 9, AlmaLinux.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hardware Matrix -->
+    <section style="margin-bottom: 60px;">
+      <h2 class="section-title">Аппаратные требования к серверу</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px;">Образы собираются только для архитектуры <strong>linux/amd64 (x86_64)</strong>; на arm64 они не запустятся.</p>
+      <div class="matrix-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Профиль нагрузки</th>
+              <th>Процессор</th>
+              <th>Оперативная память</th>
+              <th>Накопитель</th>
+              <th>Рекомендуемая топология</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Минимальный (без ClamAV)</strong></td>
+              <td>2 vCPU</td>
+              <td>2 GB RAM</td>
+              <td>20 GB SSD</td>
+              <td>Docker Compose (Тестирование, до 20 ящиков)</td>
+            </tr>
+            <tr>
+              <td><strong>Стандартный (полный стек)</strong></td>
+              <td>4 vCPU</td>
+              <td>8 GB RAM</td>
+              <td>100 GB NVMe</td>
+              <td>Docker Compose (Production, до 500 ящиков)</td>
+            </tr>
+            <tr>
+              <td><strong>Высоконагруженный</strong></td>
+              <td>8–16+ vCPU</td>
+              <td>16–32+ GB RAM</td>
+              <td>500+ GB NVMe / S3</td>
+              <td>Kubernetes Кластер (Helm-чарт, 1000+ ящиков)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Method 1: Docker Compose -->
+    <section style="margin-bottom: 60px;">
+      <span class="section-tag">Рекомендуемый вариант</span>
+      <h2 class="section-title">Установка через Docker Compose</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Шаг 1. Клонирование репозитория</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">Склонируйте официальный репозиторий развертывания (<a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">github.com/mgate-server/mgate</a>) и перейдите на последний релиз (<a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">список релизов</a>):</p>
+          <div class="terminal-box" style="margin: 0;">
+            <div class="terminal-header">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+              <button class="copy-btn" data-copy-target="#step1">Копировать</button>
+            </div>
+            <div class="terminal-body"><pre id="step1"><code>git clone https://github.com/mgate-server/mgate.git && cd mgate
+git checkout "$(git tag --sort=-v:refname | head -n 1)"</code></pre></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Шаг 2. Инициализация и генерация секретов</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">Сгенерируйте файл <code>.env</code> с уникальными криптографическими паролями:</p>
+          <div class="terminal-box" style="margin: 0;">
+            <div class="terminal-header">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+              <button class="copy-btn" data-copy-target="#step2">Копировать</button>
+            </div>
+            <div class="terminal-body"><pre id="step2"><code>make init</code></pre></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Шаг 3. Настройка FQDN и администратора</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">Укажите домен вашего почтового сервера в файле <code>.env</code>. <code>MGATE_ADMIN_EMAIL</code> — e-mail первого администратора:</p>
+          <div class="terminal-box" style="margin: 0;">
+            <div class="terminal-header">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">.env</span>
+              <button class="copy-btn" data-copy-target="#step3">Копировать</button>
+            </div>
+            <div class="terminal-body"><pre id="step3"><code>MGATE_HOSTNAME=mail.company.ru
+MGATE_ADMIN_EMAIL=admin@company.ru</code></pre></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Шаг 4. Запуск контейнеров</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">Образы загружаются из <code>ghcr.io/mgate-server/*</code> (публичные, вход в реестр не требуется; список — на странице <a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">пакетов организации</a>). Загрузите образы, запустите сервисы и проверьте их статус:</p>
+          <div class="terminal-box" style="margin: 0;">
+            <div class="terminal-header">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+              <button class="copy-btn" data-copy-target="#step4">Копировать</button>
+            </div>
+            <div class="terminal-body"><pre id="step4"><code>docker compose pull
+docker compose up -d
+docker compose ps</code></pre></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Шаг 5. Получение первого пароля администратора</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">Если <code>MGATE_ADMIN_PASSWORD</code> в <code>.env</code> не задан, пароль генерируется при первой инициализации базы и выводится в лог один раз — сохраните его сразу:</p>
+          <div class="terminal-box" style="margin: 0;">
+            <div class="terminal-header">
+              <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+              <button class="copy-btn" data-copy-target="#step5">Копировать</button>
+            </div>
+            <div class="terminal-body"><pre id="step5"><code>docker compose logs migrate | grep -A2 'initial superadmin'</code></pre></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 14px;">
+            Откройте в браузере <code>https://mail.company.ru/admin</code> и войдите под администратором. По умолчанию сервер отдаёт <strong>самоподписанный сертификат</strong>, поэтому браузер покажет предупреждение; для рабочей эксплуатации загрузите собственный сертификат в разделе «Сертификаты» (автоматический выпуск Let's Encrypt — в разработке). Если пароль утерян, задайте новый:
+            <code>docker compose exec api mgate admin reset-password &lt;MGATE_ADMIN_EMAIL&gt;</code>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method 2: Kubernetes Helm -->
+    <section style="margin-bottom: 60px;">
+      <h2 class="section-title">Развертывание в Kubernetes (Helm)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        Для работы в кластере Kubernetes доступен официальный Helm-чарт в каталоге <code>deploy/helm/mgate</code> репозитория (выполняйте из клона на последнем релизе, см. шаг 1):
+      </p>
+
+      <div class="terminal-box" style="margin: 0;">
+        <div class="terminal-header">
+          <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+          <button class="copy-btn" data-copy-target="#helmCmds">Копировать</button>
+        </div>
+        <div class="terminal-body">
+          <pre id="helmCmds"><code>cd mgate/deploy/helm/mgate
+helm install mgate . \
+  --namespace mgate --create-namespace \
+  --set config.hostname=mail.company.ru \
+  --set config.adminEmail=admin@company.ru</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section style="margin-bottom: 60px;">
+      <h2 class="section-title">Диагностика проблем при развертывании</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent-amber);">Исходящая почта задерживается</h3>
+          <p style="font-size: 0.92rem; line-height: 1.6;">
+            <strong>Причина:</strong> Блокировка 25-го порта на уровне виртуального коммутатора хостинг-провайдера.<br>
+            <strong>Решение:</strong> Создайте запрос в тикет-систему хостинга для снятия блокировки SMTP 25.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-amber);">Браузер предупреждает о сертификате</h3>
+          <p style="font-size: 0.92rem; line-height: 1.6;">
+            <strong>Причина:</strong> По умолчанию отдаётся самоподписанный сертификат; автоматический выпуск Let's Encrypt пока в разработке.<br>
+            <strong>Решение:</strong> Загрузите собственный сертификат (цепочка и ключ в PEM) в админке: «Сертификаты» → «Загрузить сертификат».
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 14px;">
+            <div class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span>MGate</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); max-width: 360px;">
+            Автономная корпоративная почтовая платформа нового поколения.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/features/">Возможности</a></li>
+            <li><a href="/docs/">Документация</a></li>
+            <li><a href="/install/">Установка</a></li>
+            <li><a href="/examples/">Примеры использования</a></li>
+            <li><a href="/live-demo/">Live Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ресурсы</h4>
+          <ul class="footer-links">
+            <li><a href="/docs/#dns">Настройка DNS</a></li>
+            <li><a href="/docs/#ports">Справочник портов</a></li>
+            <li><a href="/docs/#env">Конфигурация .env</a></li>
+            <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
+            <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MGate Platform. Все права защищены.</div>
+        <div style="color: var(--text-dim);">Релизы: <a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">GitHub Releases</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Примеры использования и сценарии — MGate Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>MGate</span>
+        <span class="brand-badge">Examples</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="/">Главная</a></li>
+          <li class="nav-item"><a href="/features/">Возможности</a></li>
+          <li class="nav-item"><a href="/docs/">Документация</a></li>
+          <li class="nav-item"><a href="/install/">Установка</a></li>
+          <li class="nav-item"><a href="/examples/" class="active">Примеры использования</a></li>
+          <li class="nav-item"><a href="/live-demo/">Live Demo</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демо стенды</a>
+        <a href="/install/" class="btn btn-primary btn-sm">Начать работу</a>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 40px; padding-bottom: 90px;">
+    <!-- Intro -->
+    <div style="margin-bottom: 40px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px;">
+      <span class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        Практические сценарии
+      </span>
+      <h1 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px;">
+        Сценарии внедрения и примеры использования
+      </h1>
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 860px; line-height: 1.6;">
+        Реальные кейсы развертывания MGate: от суверенной почты компании до планового вытеснения устаревших Exchange-серверов.
+      </p>
+    </div>
+
+    <!-- Case 1: Corporate Mail for Medium Enterprise -->
+    <section style="margin-bottom: 60px;">
+      <div class="card" style="border-left: 3px solid var(--accent-emerald);">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+          Сценарий 1. Корпоративная почта компании под собственным доменом
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.65;">
+          <strong>Контекст:</strong> Компания со штатом 100–300 сотрудников переходит с ненадежных бесплатных почтовых ящиков на публичных сервисах на собственный закрытый контур.<br>
+          <strong>Цель:</strong> Полный контроль переписки, исключение утечек, безупречная доставляемость писем клиентам и единый брендированный Webmail.
+        </p>
+
+        <div class="grid-3">
+          <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 6px;">Инфраструктура</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted);">
+              1 виртуальный сервер (4 vCPU, 8 GB RAM, 120 GB NVMe). ОС Linux Ubuntu 24.04 LTS.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 6px;">Внедрение</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted);">
+              Развертывание стека через <code>docker compose up -d</code>, настройка DNS (MX, SPF, DKIM 2048-bit, DMARC).
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 6px;">Результат</div>
+            <div style="font-size: 0.9rem; color: var(--text-muted);">
+              Защищенная почтовая система, веб-интерфейс для сотрудников, автоматические инкрементальные бэкапы в S3.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case 2: Zero-Downtime Migration from Exchange / Zimbra -->
+    <section id="migration" style="margin-bottom: 60px;">
+      <div class="card" style="border-left: 3px solid var(--primary);">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+          Сценарий 2. Бесшовная миграция с Microsoft Exchange и Zimbra по IMAP
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px; line-height: 1.65;">
+          <strong>Задача:</strong> Перенести терабайты накопившихся архивов почты со старого сервера без остановки бизнес-процессов компании и без потери единого сообщения.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 20px; border-radius: var(--radius-md); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">1</div>
+            <div>
+              <strong style="color: var(--text-main); font-size: 1rem;">Импорт структуры ящиков:</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Администратор вставляет список почтовых адресов (например, из CSV) в мастер «Импорт и миграция» либо создаёт ящики через REST API. Ящики создаются в системе автоматически.
+              </p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 20px; border-radius: var(--radius-md); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">2</div>
+            <div>
+              <strong style="color: var(--text-main); font-size: 1rem;">Фоновый перенос архивов (по IMAP):</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Встроенный инструмент подключается к старому серверу по IMAP (на нём должен быть включён IMAP) и копирует исторические письма в фоне, сохраняя папки и статусы прочтения. Старый сервер работает в обычном режиме.
+              </p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 20px; border-radius: var(--radius-md); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">3</div>
+            <div>
+              <strong style="color: var(--text-main); font-size: 1rem;">Переключение MX-записей в DNS:</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                MX-запись домена переключается на MGate. Новые письма сразу начинают поступать в новую систему.
+              </p>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 20px; border-radius: var(--radius-md); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: var(--primary); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0;">4</div>
+            <div>
+              <strong style="color: var(--text-main); font-size: 1rem;">Финальная докачка (Catch-up):</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Синхронизацию можно запустить повторно («Синхронизировать ещё раз»): она докачивает письма, попавшие на старый сервер в период обновления DNS-кэшей.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case 3: Multidomain Holding -->
+    <section style="margin-bottom: 60px;">
+      <div class="card" style="border-left: 3px solid var(--accent-indigo);">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+          Сценарий 3. Мультидоменная инсталляция для холдинга (редакция Pro)
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.65;">
+          <strong>Контекст:</strong> Группа компаний, объединяющая головной офис и 15 дочерних предприятий с собственными доменами первого уровня.<br>
+          <strong>Решение:</strong> Единая инсталляция MGate с изолированным управлением каждым доменом, индивидуальными ключами DKIM и журналом аудита действий администраторов.
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Доменное имя</th>
+                <th>Подразделение</th>
+                <th>Почтовые ящики</th>
+                <th>DKIM Селектор</th>
+                <th>Администрирование</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>holding.ru</code></td>
+                <td>Головной офис</td>
+                <td>300 ящиков</td>
+                <td><code>mgate._domainkey</code> (2048-bit)</td>
+                <td>Суперадминистратор</td>
+              </tr>
+              <tr>
+                <td><code>logistics.ru</code></td>
+                <td>Транспортная компания</td>
+                <td>800 ящиков</td>
+                <td><code>mgate._domainkey</code> (2048-bit)</td>
+                <td>Делегированный админ филиала</td>
+              </tr>
+              <tr>
+                <td><code>retail-chain.ru</code></td>
+                <td>Торговая сеть</td>
+                <td>1,500 ящиков</td>
+                <td><code>mgate._domainkey</code> (2048-bit)</td>
+                <td>Делегированный админ ритейла</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case 4: Client Integration -->
+    <section style="margin-bottom: 60px;">
+      <h2 class="section-title">Автоматическая настройка почтовых программ</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px;">
+        MGate поддерживает стандартные протоколы автообнаружения настроек Autoconfig и Autodiscover:
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3>Microsoft Outlook</h3>
+          <p style="font-size: 0.92rem;">
+            Пользователь вводит только логин и пароль. Outlook обращается к <code>autodiscover.company.ru</code> и автоматически настраивает защищенные порты IMAP 993 и SMTP 465.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <h3>Mozilla Thunderbird</h3>
+          <p style="font-size: 0.92rem;">
+            Thunderbird опрашивает XML-манифест по адресу <code>autoconfig.company.ru</code> и мгновенно применяет правильные параметры TLS-шифрования.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          </div>
+          <h3>Apple iOS / Android</h3>
+          <p style="font-size: 0.92rem;">
+            Смартфоны подключаются по IMAPS/SMTPS с возможностью генерации изолированных паролей приложений (App Passwords) для максимальной безопасности.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 14px;">
+            <div class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span>MGate</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); max-width: 360px;">
+            Автономная корпоративная почтовая платформа нового поколения.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/features/">Возможности</a></li>
+            <li><a href="/docs/">Документация</a></li>
+            <li><a href="/install/">Установка</a></li>
+            <li><a href="/examples/">Примеры использования</a></li>
+            <li><a href="/live-demo/">Live Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Сценарии</h4>
+          <ul class="footer-links">
+            <li><a href="#migration">Миграция с Exchange</a></li>
+            <li><a href="#migration">Миграция с Zimbra</a></li>
+            <li><a href="/features/#admin">Панель управления</a></li>
+            <li><a href="/docs/#dns-guide">Настройка DNS</a></li>
+            <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
+            <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MGate Platform. Все права защищены.</div>
+        <div style="color: var(--text-dim);">Релизы: <a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">GitHub Releases</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

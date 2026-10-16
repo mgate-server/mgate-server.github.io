@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Возможности и функционал — MGate Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <span>MGate</span>
+        <span class="brand-badge">Features</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="/">Главная</a></li>
+          <li class="nav-item"><a href="/features/" class="active">Возможности</a></li>
+          <li class="nav-item"><a href="/docs/">Документация</a></li>
+          <li class="nav-item"><a href="/install/">Установка</a></li>
+          <li class="nav-item"><a href="/examples/">Примеры использования</a></li>
+          <li class="nav-item"><a href="/live-demo/">Live Demo</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демо стенды</a>
+        <a href="/install/" class="btn btn-primary btn-sm">Начать работу</a>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Hero -->
+    <section class="hero" style="padding-bottom: 36px;">
+      <div class="container hero-content">
+        <div class="pill-badge">
+          <span class="status-pulse-dot"></span>
+          <span>SYSTEM CAPABILITIES // ARCHITECTURE MATRIX</span>
+        </div>
+        <h1>
+          Возможности корпоративной платформы <br>
+          <span class="text-gradient">без компромиссов в безопасности</span>
+        </h1>
+        <p class="hero-desc">
+          Детальный разбор каждого компонента: от интерфейса конечного пользователя до фильтрации нежелательной почты и криптографической аутентификации.
+        </p>
+
+        <!-- Quick Jump Buttons with SVG Icons -->
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px;">
+          <a href="#webmail" class="btn btn-secondary btn-sm">Webmail SPA</a>
+          <a href="#admin" class="btn btn-secondary btn-sm">Панель управления</a>
+          <a href="#core" class="btn btn-secondary btn-sm">Почтовое ядро</a>
+          <a href="#deliverability" class="btn btn-secondary btn-sm">Доставляемость</a>
+          <a href="#migration" class="btn btn-secondary btn-sm">IMAP-миграция</a>
+          <a href="#security" class="btn btn-secondary btn-sm">Безопасность ASVS L2</a>
+          <a href="#monitoring" class="btn btn-secondary btn-sm">Телеметрия</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Webmail SPA with Realistic UI Mockup -->
+    <section id="webmail" class="section container" style="border-top: 1px solid var(--border-subtle);">
+      <div class="section-title-wrap" style="text-align: left; margin: 0 0 32px 0;">
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Пользовательский интерфейс
+        </span>
+        <h2 class="section-title">Современный отзывчивый Webmail</h2>
+        <p class="section-subtitle">
+          Быстрый Single Page Application на React: мгновенная фильтрация, цепочки сообщений и работа без перезагрузок страницы.
+        </p>
+      </div>
+
+      <!-- Realistic Webmail UI Mockup Window -->
+      <div class="ui-mockup-window">
+        <div class="mockup-topbar">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="mockup-url-bar">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>https://mail.company.ru/mail/inbox</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-dim); margin-left: auto;">
+            User: ivan.petrov@company.ru
+          </div>
+        </div>
+
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 12px; justify-content: flex-start;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Написать письмо
+            </button>
+            <div class="mockup-nav-item active">
+              <span>Входящие</span>
+              <span class="pill-badge" style="padding: 1px 6px; font-size: 0.7rem; margin: 0;">14</span>
+            </div>
+            <div class="mockup-nav-item"><span>Отправленные</span></div>
+            <div class="mockup-nav-item"><span>Черновики</span></div>
+            <div class="mockup-nav-item"><span>Архив</span></div>
+            <div class="mockup-nav-item"><span>Спам</span></div>
+            <div class="mockup-nav-item"><span>Корзина</span></div>
+            <div style="border-top: 1px solid var(--border-subtle); margin: 8px 0;"></div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); padding-left: 12px;">Метки</div>
+            <div class="mockup-nav-item"><span style="color: #60a5fa;">● Проекты</span></div>
+            <div class="mockup-nav-item"><span style="color: #34d399;">● Договоры</span></div>
+          </div>
+
+          <div class="mockup-content">
+            <div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-size: 1.15rem; color: var(--text-main); margin: 0;">
+                  Согласование обновленного почтового шлюза и плана миграции
+                </h3>
+                <span class="pill-badge" style="margin: 0; padding: 3px 8px; font-size: 0.72rem; color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3); font-family: var(--font-mono);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>DKIM VERIFIED
+                </span>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; display: flex; gap: 16px;">
+                <span>От: <strong>infrastructure@partner.ru</strong></span>
+                <span>Кому: <strong>team@company.ru</strong></span>
+                <span style="color: var(--text-dim); margin-left: auto;">Сегодня, 14:28</span>
+              </div>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 16px;">
+              Коллеги, добрый день! Тестирование почтового стека MGate прошло успешно. Задержка в очередях составляет менее 0.2 сек, антиспам фильтр Rspamd отсек 100% тестовых спам-сообщений. Переходим к переключению боевых MX-записей.
+            </p>
+
+            <!-- Attachment badge -->
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.85rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+              <span>migration-checklist-v2.pdf (1.4 MB)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Admin Panel with UI Mockup -->
+    <section id="admin" class="section container" style="border-top: 1px solid var(--border-subtle);">
+      <div class="section-title-wrap" style="text-align: left; margin: 0 0 32px 0;">
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Администрирование
+        </span>
+        <h2 class="section-title">Единая панель управления</h2>
+        <p class="section-subtitle">
+          Интуитивный визуальный контроль: очереди писем Postfix, управление ящиками, квотами и живой аудит событий.
+        </p>
+      </div>
+
+      <!-- Admin Dashboard Mockup with Sparkline Graph -->
+      <div class="ui-mockup-window">
+        <div class="mockup-topbar">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="mockup-url-bar">
+            <span>https://mail.company.ru/admin/#/dashboard</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 6px; margin-left: auto;">
+            <span class="status-pulse-dot"></span>
+            Стек активен (Все службы здоровы)
+          </div>
+        </div>
+
+        <div style="padding: 24px;">
+          <!-- 4 KPI Cards -->
+          <div class="grid-4" style="margin-bottom: 24px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px;">Почтовых ящиков</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">482</div>
+              <div style="font-size: 0.8rem; color: var(--accent-emerald);">● 100% активны</div>
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px;">Доставлено (24ч)</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">14,892</div>
+              <div style="font-size: 0.8rem; color: var(--accent-emerald);">Доставляемость 99.8%</div>
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px;">Отсеяно спама</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-amber);">1,420</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Rspamd score &gt; 11.0</div>
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 18px; border-radius: var(--radius-md);">
+              <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px;">Очередь Postfix</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">0 msgs</div>
+              <div style="font-size: 0.8rem; color: var(--accent-emerald);">Задержка 0.0 с</div>
+            </div>
+          </div>
+
+          <!-- Real SVG Delivery Sparkline / Chart -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 700; font-size: 0.95rem;">Интенсивность почтового потока за последние 24 часа</span>
+              <div style="display: flex; gap: 16px; font-size: 0.8rem;">
+                <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #2563eb; border-radius: 2px;"></span> Входящие</span>
+                <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #64748b; border-radius: 2px;"></span> Исходящие</span>
+                <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #d97706; border-radius: 2px;"></span> Спам/Блокировки</span>
+              </div>
+            </div>
+
+            <svg viewBox="0 0 800 120" style="width: 100%; height: 120px; overflow: visible;">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.15"></stop>
+                  <stop offset="100%" stop-color="#2563eb" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M 0,90 Q 100,70 200,85 T 400,40 T 600,60 T 800,30 L 800,120 L 0,120 Z" fill="url(#chartGrad)"></path>
+              <path d="M 0,90 Q 100,70 200,85 T 400,40 T 600,60 T 800,30" fill="none" stroke="#2563eb" stroke-width="2.5"></path>
+              <path d="M 0,105 Q 100,95 200,100 T 400,80 T 600,85 T 800,65" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="4 4"></path>
+            </svg>
+          </div>
+
+          <!-- Queue Management Actions -->
+          <div style="background: var(--bg-code); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #cbd5e1;">
+              Управление очередями: <code>postsuper / postqueue control API</code>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm">Сбросить очередь (Flush)</button>
+              <button class="btn btn-outline btn-sm">Пересканировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Mail Core & Filtering -->
+    <section id="core" class="section container" style="border-top: 1px solid var(--border-subtle);">
+      <div class="section-title-wrap">
+        <span class="section-tag">Почтовое ядро</span>
+        <h2 class="section-title">Надежность Unix-стека с быстродействием Rust</h2>
+        <p class="section-subtitle">
+          Модульная связка компонентов с четким разграничением ответственности и максимальной изоляцией.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3>Postfix MTA Core</h3>
+          <p>
+            Обработка SMTP :25, Submission :465/:587. Защита от ботнетов через встроенный postscreen и динамическая валидация получателей через Rust Policy Service (:8081).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3>Dovecot 2.4 MDA & IMAP</h3>
+          <p>
+            Быстрый доступ по протоколам IMAP :993 и POP3 :995, прием писем по LMTP, хранение сообщений в Maildir и серверная фильтрация ManageSieve :4190.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Интеллектуальный Rspamd</h3>
+          <p>
+            Многофакторный спам-фильтр: эвристические правила, байесовские классификаторы, нейросетевой скоринг, greylisting и подпись исходящих сообщений.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Deliverability & DNS -->
+    <section id="deliverability" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="section-tag">Репутация почты</span>
+            <h2 class="section-title">Максимальная доставляемость писем</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 24px; line-height: 1.6;">
+              Строгая криптографическая проверка исключает попадание писем в папку «Спам» у крупнейших мировых и российских провайдеров.
+            </p>
+
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+              <li style="display: flex; gap: 12px; align-items: flex-start;">
+                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <div>
+                  <strong>DKIM RSA-2048:</strong> Автоматическая генерация ключа при создании домена и ротация по кнопке с новым селектором; запись старого селектора остаётся в DNS, пока не доставлены ранее подписанные письма.
+                </div>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start;">
+                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <div>
+                  <strong>SPF & DMARC:</strong> Защита корпоративного домена от подделки; агрегированные отчёты (rua) загружаются в панель в виде XML вручную.
+                </div>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start;">
+                <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <div>
+                  <strong>ARC (Authenticated Received Chain):</strong> Сохранение доверия к письмам при их пересылке через промежуточные узлы.
+                </div>
+              </li>
+            </ul>
+
+            <div style="margin-top: 24px;">
+              <a href="/docs/#dns" class="btn btn-primary">Конфигуратор DNS записей →</a>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 28px;">
+            <div style="font-weight: 700; margin-bottom: 16px; font-size: 1.1rem; color: var(--text-main);">Матрица верификации домена</div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 16px; border-radius: var(--radius-sm);">
+                <span>DKIM Signature (rsa-2048)</span>
+                <span style="color: var(--accent-emerald); font-weight: 700;">PASS (10/10)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 16px; border-radius: var(--radius-sm);">
+                <span>SPF Alignment Record</span>
+                <span style="color: var(--accent-emerald); font-weight: 700;">PASS (10/10)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 16px; border-radius: var(--radius-sm);">
+                <span>DMARC Strict Policy</span>
+                <span style="color: var(--accent-emerald); font-weight: 700;">PASS (10/10)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 10px 16px; border-radius: var(--radius-sm);">
+                <span>rDNS (PTR) Match</span>
+                <span style="color: var(--accent-emerald); font-weight: 700;">MATCHED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. IMAP migration -->
+    <section id="migration" class="section container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Миграция</span>
+        <h2 class="section-title">IMAP-миграция: перенос почты без остановки бизнеса</h2>
+        <p class="section-subtitle">
+          Встроенный инструмент переносит ящики с Яндекс 360, Google Workspace, Mail.ru и любых IMAP-серверов в фоне, пока сотрудники продолжают работать на старом сервере. Администратор запускает пакетный перенос в разделе «Импорт и миграция», пользователь может перенести свой ящик самостоятельно.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+          </div>
+          <h3>1. Фоновый перенос</h3>
+          <p>
+            Фоновая задача подключается к исходному серверу по IMAP (средствами Dovecot) и переносит папки, письма и флаги; статус каждого ящика виден в интерфейсе.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          </div>
+          <h3>2. Переключение MX</h3>
+          <p>
+            После завершения первичной выгрузки меняются MX-записи. Новая почта сразу принимается MGate, сотрудники продолжают работу.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3>3. Повторная синхронизация</h3>
+          <p>
+            Синхронизацию можно запустить повторно: она докачивает письма, оставшиеся на старом сервере в период обновления DNS-кэшей.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Security ASVS L2 -->
+    <section id="security" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-tag">Безопасность</span>
+          <h2 class="section-title">Стандарты безопасности корпоративного уровня</h2>
+          <p class="section-subtitle">
+            Соответствие методике OWASP Application Security Verification Standard (ASVS) Level 2.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3>Argon2id Хеширование</h3>
+            <p>Пароли пользователей и администраторов защищены стойким алгоритмом Argon2id с аппаратной защитой от перебора на GPU/FPGA.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3>Пароли приложений</h3>
+            <p>Отдельные пароли для почтовых клиентов (Outlook, Apple Mail, Thunderbird): их можно отозвать, не меняя основной пароль. Двухфакторная аутентификация (TOTP) — в разработке.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3>Неизменяемый аудит-лог</h3>
+            <p>Защищенный журнал всех критических действий с контролем целостности цепочки записей на базе хешей SHA-256.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Monitoring & Backups -->
+    <section id="monitoring" class="section container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Надежность</span>
+        <h2 class="section-title">Телеметрия и регулярное резервное копирование</h2>
+        <p class="section-subtitle">
+          Встроенный сбор метрик и оркестровка резервного копирования на базе утилиты restic.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h3>Мониторинг Prometheus</h3>
+          <p style="margin-bottom: 14px;">
+            Эндпоинт <code>/metrics</code> (только во внутренней сети) отдает телеметрию очередей доставки, числа сообщений, задержек и состояния баз данных.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted);">
+            <li>• Трафик в реальном времени (входящие / исходящие / спам)</li>
+            <li>• Задержка обработки и среднее время нахождения в очереди</li>
+            <li>• Проверки работоспособности <code>/api/v1/system/health</code> и <code>/api/v1/mail/health</code></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+          </div>
+          <h3>Бэкапы на restic</h3>
+          <p style="margin-bottom: 14px;">
+            Автоматическое создание инкрементальных снимков баз данных PostgreSQL и почтовых хранилищ с шифрованием AES-256.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted);">
+            <li>• Дедупликация на уровне блоков (экономия диска до 70%)</li>
+            <li>• Поддержка локального хранилища и облачных S3-бакетов</li>
+            <li>• Восстановление почтовых ящиков консольной командой <code>make restore</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 14px;">
+            <div class="brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <span>MGate</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); max-width: 360px;">
+            Автономная корпоративная почтовая платформа нового поколения.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul class="footer-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/features/">Возможности</a></li>
+            <li><a href="/docs/">Документация</a></li>
+            <li><a href="/install/">Установка</a></li>
+            <li><a href="/examples/">Примеры использования</a></li>
+            <li><a href="/live-demo/">Live Demo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ресурсы</h4>
+          <ul class="footer-links">
+            <li><a href="/docs/#dns">Настройка DNS</a></li>
+            <li><a href="/docs/#ports">Справочник портов</a></li>
+            <li><a href="/docs/#env">Конфигурация .env</a></li>
+            <li><a href="/docs/#backup">Резервное копирование</a></li>
+            <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
+            <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MGate Platform. Все права защищены.</div>
+        <div style="color: var(--text-dim);">Релизы: <a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">GitHub Releases</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
