@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261022-tabs">
 </head>
 <body>
 
@@ -93,16 +93,16 @@
 
         <!-- Terminal Quick Start Box -->
         <div class="terminal-box" data-tabs-scope>
-          <div class="terminal-header">
+          <div class="terminal-header" style="flex-wrap: wrap; gap: 12px;">
             <div class="terminal-dots">
               <span class="dot red"></span>
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <div class="terminal-tabs" data-tabs>
-              <button class="term-tab active" data-tab-target="term-compose">Docker Compose</button>
+            <div class="terminal-tabs" style="flex-wrap: wrap;" data-tabs>
+              <button class="term-tab active" data-tab-target="term-auto">Автоустановка</button>
+              <button class="term-tab" data-tab-target="term-compose">Docker Compose</button>
               <button class="term-tab" data-tab-target="term-helm">Kubernetes (Helm)</button>
-              <button class="term-tab" data-tab-target="term-aio">All-in-One (скоро)</button>
             </div>
             <button class="copy-btn" data-copy-target=".terminal-body .tab-pane.active pre code" title="Скопировать команду">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -113,7 +113,15 @@
             </button>
           </div>
           <div class="terminal-body">
-            <div class="tab-pane active" id="term-compose" data-tab-content>
+            <div class="tab-pane active" id="term-auto" data-tab-content>
+              <pre><code><span class="comment"># Linux x86_64: проверка сервера, Docker и установка MGate</span>
+curl -fsSL https://raw.githubusercontent.com/mgate-server/mgate/main/scripts/install.sh -o install-mgate.sh &amp;&amp; sudo bash install-mgate.sh
+
+<span class="comment"># Укажите домен, имя сервера и e-mail администратора по запросу.</span>
+<span class="comment"># DNS/PTR настройте у провайдера; свой TLS-сертификат загрузите в панели.</span></code></pre>
+              <p style="margin-top: 14px;"><a href="https://raw.githubusercontent.com/mgate-server/mgate/main/scripts/install.sh" target="_blank" rel="noopener">Скачать install.sh</a> · <a href="/install/#auto-install">Требования и параметры</a></p>
+            </div>
+            <div class="tab-pane" id="term-compose" data-tab-content>
               <pre><code><span class="comment"># 1. Клонирование репозитория развертывания MGate и переход на последний релиз</span>
 git clone https://github.com/mgate-server/mgate.git && cd mgate
 git checkout "$(git tag --sort=-v:refname | head -n 1)"
@@ -136,10 +144,6 @@ helm install mgate . \
   --namespace mgate --create-namespace \
   --set config.hostname=mail.company.ru \
   --set config.adminEmail=admin@company.ru</code></pre>
-            </div>
-            <div class="tab-pane" id="term-aio" data-tab-content>
-              <pre><code><span class="comment"># Компактный образ «всё в одном» (All-in-One) пока в разработке — скоро.</span>
-<span class="comment"># Сейчас используйте вкладки Docker Compose или Kubernetes (Helm).</span></code></pre>
             </div>
           </div>
         </div>
@@ -569,6 +573,7 @@ helm install mgate . \
             <li><a href="/docs/#env">Конфигурация .env</a></li>
             <li><a href="/docs/#backup">Резервное копирование</a></li>
             <li><a href="/docs/#cli">Управление через CLI</a></li>
+            <li><a href="https://raw.githubusercontent.com/mgate-server/mgate/main/scripts/install.sh" target="_blank" rel="noopener">Скрипт автоустановки .sh</a></li>
             <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
             <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
             <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>

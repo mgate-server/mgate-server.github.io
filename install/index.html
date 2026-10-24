@@ -162,6 +162,24 @@
       </div>
     </section>
 
+    <section id="auto-install" style="margin-bottom: 60px;">
+      <span class="section-tag">Быстрый старт</span>
+      <h2 class="section-title">Автоматическая установка</h2>
+      <div class="card">
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Запустите на сервере Linux x86_64 с правами root. Установщик спросит почтовый домен, имя сервера и e-mail администратора, проверит ресурсы, порты и подсети, установит зависимости и Docker на Debian/Ubuntu, скачает релиз в <code>/opt/mgate</code> и развернёт весь стек контейнеров. После проверки готовности он добавит ваш домен в MGate.</p>
+        <div class="terminal-box" style="margin: 0;">
+          <div class="terminal-header">
+            <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">bash</span>
+            <button class="copy-btn" data-copy-target="#auto-install-command">Копировать</button>
+          </div>
+          <div class="terminal-body"><pre id="auto-install-command"><code>curl -fsSL https://raw.githubusercontent.com/mgate-server/mgate/main/scripts/install.sh -o install-mgate.sh &amp;&amp; sudo bash install-mgate.sh</code></pre></div>
+        </div>
+        <p style="margin-top: 16px;"><a href="https://raw.githubusercontent.com/mgate-server/mgate/main/scripts/install.sh" target="_blank" rel="noopener">Скачать скрипт install.sh</a> · <a href="https://github.com/mgate-server/mgate/blob/main/scripts/install.sh" target="_blank" rel="noopener">Посмотреть исходный код</a></p>
+        <p style="color: var(--text-muted); margin-top: 12px;">Если <code>curl</code> отсутствует: <code>sudo apt-get update &amp;&amp; sudo apt-get install -y curl ca-certificates</code>. Параметры: <code>bash install-mgate.sh --help</code>. Для сервера с 2–4 GB RAM добавьте <code>--without-clamav</code>; полный стек требует минимум 4 GB. Нужны 2 vCPU и 20 GiB свободного места. На других Linux установщик подскажет, как поставить недостающие зависимости вручную.</p>
+        <p style="color: var(--text-muted); margin-top: 12px;">DNS, PTR и доступность портов у провайдера настраиваются вручную — установщик покажет подсказки. Пароль администратора находится в <code>MGATE_ADMIN_PASSWORD</code> файла <code>/opt/mgate/.env</code> (доступен root). Повторный запуск сохраняет конфигурацию и данные. По умолчанию используется самоподписанный TLS-сертификат; собственный загрузите в разделе «Сертификаты».</p>
+      </div>
+    </section>
+
     <!-- Method 1: Docker Compose -->
     <section style="margin-bottom: 60px;">
       <span class="section-tag">Рекомендуемый вариант</span>

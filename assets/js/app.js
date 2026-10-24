@@ -33,34 +33,98 @@ function initTabs() {
   });
 }
 
-// 2. Copy to Clipboard
+// 2. Copy to Clipboard (with cross-browser fallback and HTTP support)
+function fallbackCopyText(text) {
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.setAttribute('readonly', '');
+  textArea.style.position = 'fixed';
+  textArea.style.top = '0';
+  textArea.style.left = '0';
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+  textArea.style.padding = '0';
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+  textArea.style.background = 'transparent';
+  textArea.style.opacity = '0';
+  textArea.style.zIndex = '-9999';
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  textArea.setSelectionRange(0, textArea.value.length);
+  
+  let successful = false;
+  try {
+    successful = document.execCommand('copy');
+  } catch (err) {
+    successful = false;
+  }
+  document.body.removeChild(textArea);
+  return successful;
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext && typeof navigator.clipboard.writeText === 'function') {
+    return navigator.clipboard.writeText(text).catch(() => {
+      return fallbackCopyText(text) ? Promise.resolve() : Promise.reject(new Error('Copy failed'));
+    });
+  }
+  return fallbackCopyText(text) ? Promise.resolve() : Promise.reject(new Error('Clipboard API unavailable'));
+}
+
+function showCopiedFeedback(btn) {
+  if (!btn || btn.classList.contains('copied')) return;
+  const origHtml = btn.innerHTML;
+  const origColor = btn.style.color;
+  btn.classList.add('copied');
+  btn.innerHTML = `
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    Скопировано!
+  `;
+  btn.style.color = '#059669';
+  setTimeout(() => {
+    btn.innerHTML = origHtml;
+    btn.style.color = origColor;
+    btn.classList.remove('copied');
+  }, 2000);
+}
+
 function initCopyButtons() {
   document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       const targetSelector = btn.getAttribute('data-copy-target');
       let text = '';
       if (targetSelector) {
         const targetEl = document.querySelector(targetSelector);
-        if (targetEl) text = targetEl.innerText.trim();
+        if (targetEl) {
+          if ((targetEl.tagName === 'INPUT' || targetEl.tagName === 'TEXTAREA') && targetEl.value !== undefined) {
+            text = targetEl.value;
+          } else {
+            text = targetEl.innerText || targetEl.textContent || '';
+          }
+        }
       } else {
         text = btn.getAttribute('data-copy-text') || '';
       }
 
+      if (!text && btn.hasAttribute('data-demo-copy')) {
+        const v = btn.getAttribute('data-demo-copy');
+        text = (typeof DEFAULT_DEMO_CONFIG !== 'undefined' && DEFAULT_DEMO_CONFIG[v]) || '';
+      }
+
+      text = text.trim();
       if (!text) return;
 
-      navigator.clipboard.writeText(text).then(() => {
-        const origHtml = btn.innerHTML;
-        btn.innerHTML = `
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          Скопировано!
-        `;
-        btn.style.color = '#059669';
-        setTimeout(() => {
-          btn.innerHTML = origHtml;
-          btn.style.color = '';
-        }, 2000);
+      copyToClipboard(text).then(() => {
+        showCopiedFeedback(btn);
+      }).catch(() => {
+        window.prompt('Скопируйте текст (Ctrl+C / Cmd+C, Enter):', text);
+        showCopiedFeedback(btn);
       });
     });
   });

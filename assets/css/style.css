@@ -528,6 +528,14 @@ header {
   overflow-x: auto;
 }
 
+.terminal-body .tab-pane {
+  display: none;
+}
+
+.terminal-body .tab-pane.active {
+  display: block;
+}
+
 .terminal-body code {
   color: #38bdf8;
 }
@@ -554,6 +562,11 @@ header {
 .copy-btn:hover {
   background: #334155;
   color: #ffffff;
+}
+
+.copy-btn.copied {
+  color: #059669;
+  border-color: rgba(5, 150, 105, 0.4);
 }
 
 /* ==========================================================================
