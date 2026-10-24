@@ -35,6 +35,7 @@ function initTabs() {
 
 // 2. Copy to Clipboard (with cross-browser fallback and HTTP support)
 function fallbackCopyText(text) {
+  const previousFocus = document.activeElement;
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.setAttribute('readonly', '');
@@ -51,27 +52,33 @@ function fallbackCopyText(text) {
   textArea.style.opacity = '0';
   textArea.style.zIndex = '-9999';
   document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
-  textArea.setSelectionRange(0, textArea.value.length);
-  
   let successful = false;
   try {
+    textArea.focus({ preventScroll: true });
+    textArea.select();
+    textArea.setSelectionRange(0, textArea.value.length);
     successful = document.execCommand('copy');
   } catch (err) {
     successful = false;
+  } finally {
+    textArea.remove();
+    if (previousFocus && typeof previousFocus.focus === 'function') {
+      previousFocus.focus({ preventScroll: true });
+    }
   }
-  document.body.removeChild(textArea);
   return successful;
 }
 
-function copyToClipboard(text) {
+async function copyToClipboard(text) {
   if (navigator.clipboard && window.isSecureContext && typeof navigator.clipboard.writeText === 'function') {
-    return navigator.clipboard.writeText(text).catch(() => {
-      return fallbackCopyText(text) ? Promise.resolve() : Promise.reject(new Error('Copy failed'));
-    });
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch (err) {
+      // Permissions or browser policies can block the modern API.
+    }
   }
-  return fallbackCopyText(text) ? Promise.resolve() : Promise.reject(new Error('Clipboard API unavailable'));
+  if (!fallbackCopyText(text)) throw new Error('Copy failed');
 }
 
 function showCopiedFeedback(btn) {
@@ -124,7 +131,6 @@ function initCopyButtons() {
         showCopiedFeedback(btn);
       }).catch(() => {
         window.prompt('Скопируйте текст (Ctrl+C / Cmd+C, Enter):', text);
-        showCopiedFeedback(btn);
       });
     });
   });
