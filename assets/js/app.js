@@ -298,17 +298,14 @@ function initDocsSearch() {
 
 // 7. Live Demo Dynamic Configuration from /demo-config.json
 const DEFAULT_DEMO_CONFIG = {
-  free_url: "https://free.demo.mgate.pro",
-  free_admin_email: "admin@free.demo.mgate.pro",
-  free_admin_password: "adminpassword2026",
-  free_user_email: "user1@free.mgate",
-  free_user_password: "MailboxPassword2026!",
-
-  pro_url: "https://pro.demo.mgate.pro",
-  pro_admin_email: "admin@pro.demo.mgate.pro",
-  pro_admin_password: "adminpassword2026",
-  pro_user_email: "user1@corp.mgate",
-  pro_user_password: "MailboxPassword2026!"
+  "url": "https://test.mgate.pro",
+  "admin_url": "https://test.mgate.pro/admin",
+  "mail_url": "https://test.mgate.pro/mail",
+  "admin_email": "admin@demo.test",
+  "admin_password": "DemoAdmin2026!",
+  "user_email": "alice@demo.test",
+  "user2_email": "bob@demo.test",
+  "user_password": "DemoMailbox2026!"
 };
 
 async function initDemoConfig() {

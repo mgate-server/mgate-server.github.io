@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://mgate.pro/install/">
   <title>Установка и системные требования — MGate Installation Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261024-production">
 </head>
 <body>
 
@@ -37,8 +38,8 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демо стенды</a>
-        <a href="https://pro.demo.mgate.pro" class="btn btn-primary btn-sm" target="_blank" data-demo-href="pro_url">Вход в Pro</a>
+        <a href="/live-demo/" class="btn btn-secondary btn-sm">Демостенд</a>
+        <a href="https://test.mgate.pro" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-demo-href="url">Демостенд</a>
 
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -335,9 +336,10 @@ helm install mgate . \
         <div class="footer-col">
           <h4>Ресурсы</h4>
           <ul class="footer-links">
-            <li><a href="/docs/#dns">Настройка DNS</a></li>
-            <li><a href="/docs/#ports">Справочник портов</a></li>
-            <li><a href="/docs/#env">Конфигурация .env</a></li>
+            <li><a href="https://panel.mgate.pro" target="_blank" rel="noopener">Портал MGate</a></li>
+            <li><a href="/docs/#dns-records">Настройка DNS</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/blob/main/docs/DEPLOYMENT.md">Справочник портов</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/blob/main/docs/CONFIGURATION.md">Конфигурация .env</a></li>
             <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
             <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
             <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
@@ -352,6 +354,6 @@ helm install mgate . \
     </div>
   </footer>
 
-  <script src="/assets/js/app.js?v=6bf90586ef7a-copy1"></script>
+  <script src="/assets/js/app.js?v=20261024-production"></script>
 </body>
 </html>

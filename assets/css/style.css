@@ -1923,3 +1923,23 @@ footer {
   flex-direction: column;
   gap: 8px;
 }
+
+/* Keep shared demo credentials and navigation usable on narrow screens. */
+.demo-card {
+  min-width: 0;
+}
+
+.demo-badge-wrap {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .brand-badge { display: none; }
+  .nav-container, .nav-actions { gap: 8px; }
+  .nav-actions > .btn-secondary { display: none; }
+  .demo-card { padding: 20px; }
+  .cred-row { flex-direction: column; align-items: flex-start; }
+  .cred-value-wrap { flex-wrap: wrap; }
+  .demo-card-actions .btn { white-space: normal; text-align: center; }
+}

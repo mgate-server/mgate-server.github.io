@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Demo — Демонстрационные стенды почтовой платформы MGate</title>
+  <link rel="canonical" href="https://mgate.pro/live-demo/">
+  <title>Демостенд MGate Pro — доступ к панели и веб-почте</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20261024-production">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
 
       <div class="nav-actions">
         <a href="/install/" class="btn btn-secondary btn-sm">Установка</a>
-        <a href="https://pro.demo.mgate.pro" class="btn btn-primary btn-sm" target="_blank" data-demo-href="pro_url">Вход в Pro</a>
+        <a href="https://test.mgate.pro" class="btn btn-primary btn-sm" target="_blank" rel="noopener" data-demo-href="url">Демостенд</a>
 
         <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -57,7 +58,7 @@
       <div class="container hero-content">
         <div class="pill-badge">
           <span class="status-pulse-dot"></span>
-          <span>ОЗНАКОМИТЕЛЬНЫЕ СТЕНДЫ В РЕАЛЬНОМ ВРЕМЕНИ</span>
+          <span>ТЕСТОВЫЙ СТЕНД MGATE PRO ОНЛАЙН</span>
         </div>
 
         <h1>
@@ -66,164 +67,91 @@
         </h1>
 
         <p class="hero-desc">
-          Оцените возможности MGate без необходимости развертывать сервер в своей инфраструктуре. Для тестирования доступны демонстрационные стенды редакций <strong>Community (Free)</strong> и <strong>Enterprise (Pro)</strong> с готовыми тестовыми ящиками и правами администратора.
+          MGate запущен в промышленную эксплуатацию. На отдельном публичном стенде <a href="https://test.mgate.pro" target="_blank" rel="noopener">test.mgate.pro</a> можно попробовать редакцию <strong>Pro</strong> без установки: войти в панель администратора и обменяться письмами между готовыми ящиками домена <code>demo.test</code>.
         </p>
       </div>
     </section>
 
-    <!-- Demo Stands 2-Column Grid -->
+    <!-- Two roles on one public demo stand -->
     <section class="section" style="padding-top: 0; padding-bottom: 40px;">
       <div class="container">
         <div class="grid-2" style="align-items: stretch; gap: 32px;">
-
-          <!-- Stand 1: Free Community -->
-          <div class="demo-card free">
-            <div class="demo-badge-wrap">
-              <span class="status-badge" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;">Тариф Community</span>
-              <span class="status-badge online">
-                <span class="status-pulse-dot" style="background: #10b981;"></span>
-                Стенд активен
-              </span>
-            </div>
-
-            <h3 style="font-size: 1.45rem; margin-bottom: 10px;">Free Стенд</h3>
-            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px;">
-              Базовая редакция для одного корпоративного домена. Идеально подходит для малого бизнеса и самостоятельного развертывания почты с веб-интерфейсом и антиспам-защитой.
-            </p>
-
-            <div class="cred-group">
-              <div class="cred-title">Панель администратора (Управление доменом и ящиками)</div>
-              <div class="cred-row">
-                <span class="cred-label">Логин:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="free_admin_email">admin@free.demo.mgate.pro</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="free_admin_email" aria-label="Скопировать логин">Копировать</button>
-                </div>
-              </div>
-              <div class="cred-row">
-                <span class="cred-label">Пароль:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="free_admin_password">adminpassword2026</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="free_admin_password" aria-label="Скопировать пароль">Копировать</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="cred-group" style="margin-top: 0;">
-              <div class="cred-title">Веб-почта пользователя (Webmail)</div>
-              <div class="cred-row">
-                <span class="cred-label">Email:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="free_user_email">user1@free.mgate</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="free_user_email" aria-label="Скопировать email">Копировать</button>
-                </div>
-              </div>
-              <div class="cred-row">
-                <span class="cred-label">Пароль:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="free_user_password">MailboxPassword2026!</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="free_user_password" aria-label="Скопировать пароль">Копировать</button>
-                </div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.84rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 24px;">
-              ✓ Домен: <code style="font-size: 0.8rem;">free.mgate</code><br>
-              ✓ Встроенный спам-фильтр Rspamd и антивирус ClamAV<br>
-              ✓ Быстрый веб-интерфейс, поддержка протоколов IMAP, POP3, SMTP
-            </div>
-
-            <div class="demo-card-actions">
-              <a href="https://free.demo.mgate.pro" class="btn btn-outline btn-lg" style="justify-content: center;" target="_blank" data-demo-href="free_url">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-                Открыть Free Стенд
-              </a>
-            </div>
-          </div>
-
-          <!-- Stand 2: Pro Enterprise -->
           <div class="demo-card pro">
             <div class="demo-badge-wrap">
-              <span class="status-badge pro">Тариф Enterprise Pro</span>
-              <span class="status-badge online">
-                <span class="status-pulse-dot" style="background: #3b82f6;"></span>
-                Лицензия активна
-              </span>
+              <span class="status-badge pro">MGate Pro</span>
+              <span class="status-badge online">Общий тестовый доступ</span>
             </div>
-
-            <h3 style="font-size: 1.45rem; margin-bottom: 10px;">Pro Стенд</h3>
-            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px;">
-              Редакция Pro: неограниченное число доменов, DMARC Intelligence (полные IP-адреса источников, история до 90 дней, исходные XML-отчёты) и white-label брендинг (название продукта и логотип).
-            </p>
-
+            <h3 style="font-size: 1.45rem; margin-bottom: 10px;">Панель администратора</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px;">Изучите управление почтовым сервером: домены, ящики, квоты, очередь писем и журнал событий.</p>
             <div class="cred-group">
-              <div class="cred-title">Панель суперадминистратора (Мультидоменность и аудит)</div>
               <div class="cred-row">
                 <span class="cred-label">Логин:</span>
                 <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="pro_admin_email">admin@pro.demo.mgate.pro</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="pro_admin_email" aria-label="Скопировать логин">Копировать</button>
+                  <span class="cred-value" data-demo-var="admin_email">admin@demo.test</span>
+                  <button class="copy-btn btn-xs" data-demo-copy="admin_email" data-copy-text="admin@demo.test" aria-label="Скопировать логин">Копировать</button>
                 </div>
               </div>
               <div class="cred-row">
                 <span class="cred-label">Пароль:</span>
                 <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="pro_admin_password">adminpassword2026</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="pro_admin_password" aria-label="Скопировать пароль">Копировать</button>
+                  <span class="cred-value" data-demo-var="admin_password">DemoAdmin2026!</span>
+                  <button class="copy-btn btn-xs" data-demo-copy="admin_password" data-copy-text="DemoAdmin2026!" aria-label="Скопировать пароль">Копировать</button>
                 </div>
               </div>
             </div>
-
-            <div class="cred-group" style="margin-top: 0;">
-              <div class="cred-title">Веб-почта корпоративного сотрудника</div>
-              <div class="cred-row">
-                <span class="cred-label">Email:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="pro_user_email">user1@corp.mgate</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="pro_user_email" aria-label="Скопировать email">Копировать</button>
-                </div>
-              </div>
-              <div class="cred-row">
-                <span class="cred-label">Пароль:</span>
-                <div class="cred-value-wrap">
-                  <span class="cred-value" data-demo-var="pro_user_password">MailboxPassword2026!</span>
-                  <button class="copy-btn btn-xs" data-demo-copy="pro_user_password" aria-label="Скопировать пароль">Копировать</button>
-                </div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.84rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 24px;">
-              ✓ Домены холдинга: <code style="font-size: 0.8rem;">corp.mgate</code>, <code style="font-size: 0.8rem;">fin.mgate</code>, <code style="font-size: 0.8rem;">dev.mgate</code>, <code style="font-size: 0.8rem;">test.mgate</code><br>
-              ✓ DMARC Intelligence: полные IP источников, история до 90 дней, исходные XML-отчёты<br>
-              ✓ White-label: название продукта и логотип в интерфейсе
-            </div>
-
             <div class="demo-card-actions">
-              <a href="https://pro.demo.mgate.pro" class="btn btn-primary btn-lg" style="justify-content: center;" target="_blank" data-demo-href="pro_url">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-                Открыть Pro Стенд
-              </a>
+              <a href="https://test.mgate.pro/admin" class="btn btn-primary btn-lg" style="justify-content: center;" target="_blank" rel="noopener" data-demo-href="admin_url">Открыть панель администратора</a>
             </div>
           </div>
-
+          <div class="demo-card pro">
+            <div class="demo-badge-wrap">
+              <span class="status-badge pro">MGate Pro</span>
+              <span class="status-badge online">Общий тестовый доступ</span>
+            </div>
+            <h3 style="font-size: 1.45rem; margin-bottom: 10px;">Веб-почта пользователей</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px;">Войдите в ящик Alice или Bob. Отправьте письмо другому тестовому пользователю, проверьте папки, вложения и адресную книгу.</p>
+            <div class="cred-group">
+              <div class="cred-row">
+                <span class="cred-label">Ящик Alice:</span>
+                <div class="cred-value-wrap">
+                  <span class="cred-value" data-demo-var="user_email">alice@demo.test</span>
+                  <button class="copy-btn btn-xs" data-demo-copy="user_email" data-copy-text="alice@demo.test" aria-label="Скопировать ящик alice">Копировать</button>
+                </div>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Ящик Bob:</span>
+                <div class="cred-value-wrap">
+                  <span class="cred-value" data-demo-var="user2_email">bob@demo.test</span>
+                  <button class="copy-btn btn-xs" data-demo-copy="user2_email" data-copy-text="bob@demo.test" aria-label="Скопировать ящик bob">Копировать</button>
+                </div>
+              </div>
+              <div class="cred-row">
+                <span class="cred-label">Общий пароль:</span>
+                <div class="cred-value-wrap">
+                  <span class="cred-value" data-demo-var="user_password">DemoMailbox2026!</span>
+                  <button class="copy-btn btn-xs" data-demo-copy="user_password" data-copy-text="DemoMailbox2026!" aria-label="Скопировать общий пароль">Копировать</button>
+                </div>
+              </div>
+            </div>
+            <div class="demo-card-actions">
+              <a href="https://test.mgate.pro/mail" class="btn btn-primary btn-lg" style="justify-content: center;" target="_blank" rel="noopener" data-demo-href="mail_url">Открыть веб-почту</a>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 24px; padding: 24px;">
+          <h3 style="margin-bottom: 12px;">Как работает тестовый доступ</h3>
+          <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 12px;">Письма доставляются только внутри <code>demo.test</code>; отправка внешним получателям заблокирована. Пароли общих аккаунтов, настройки 2FA и лицензии изменить нельзя; удаление аккаунтов и доменов отключено.</p>
+          <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 12px;">Каждый день в <strong>00:00 UTC</strong> стенд возвращается в исходное состояние: письма и изменения посетителей удаляются. Во время сброса доступ может кратковременно прерываться.</p>
+          <p style="color: var(--text-muted); line-height: 1.65;">Используйте вымышленные данные: содержимое общих ящиков доступно другим посетителям. Для собственной установки перейдите в <a href="/install/">раздел установки</a>.</p>
         </div>
       </div>
     </section>
-
 
     <!-- Key Evaluation Scenarios for Customers -->
     <section class="section section-muted">
       <div class="container">
         <div class="section-header" style="max-width: 760px; margin-bottom: 36px;">
-          <h2>Что протестировать на демонстрационных стендах</h2>
+          <h2>Что протестировать на стенде</h2>
           <p class="section-desc">
             Рекомендуем проверить ключевые сценарии ежедневной работы пользователей и администраторов почтовой системы.
           </p>
@@ -255,7 +183,7 @@
               <h4 style="margin: 0; font-size: 1.05rem;">Безопасность и спам-фильтр</h4>
             </div>
             <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-              На стендах непрерывно работает интеллектуальный фильтр Rspamd. Оцените автоматическую сортировку нежелательной корреспонденции и защиту от фишинга.
+              Проверьте отображение результатов проверки писем и работу папки «Спам». Внешняя доставка на публичном стенде отключена.
             </p>
           </div>
 
@@ -279,7 +207,7 @@
     </section>
 
     <!-- Edition Comparison Table for Decision Makers -->
-    <section class="section">
+    <section class="section" id="editions">
       <div class="container">
         <div class="section-header" style="max-width: 760px; margin-bottom: 36px;">
           <h2>Сравнение редакций Community и Enterprise</h2>
@@ -375,11 +303,12 @@
         <div class="footer-col">
           <h4>Ресурсы</h4>
           <ul class="footer-links">
-            <li><a href="/docs/#dns">Настройка DNS</a></li>
-            <li><a href="/docs/#ports">Справочник портов</a></li>
-            <li><a href="/docs/#env">Конфигурация .env</a></li>
-            <li><a href="/docs/#backup">Резервное копирование</a></li>
-            <li><a href="/docs/#cli">Управление через CLI</a></li>
+            <li><a href="https://panel.mgate.pro" target="_blank" rel="noopener">Портал MGate</a></li>
+            <li><a href="/docs/#dns-records">Настройка DNS</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/blob/main/docs/DEPLOYMENT.md">Справочник портов</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/blob/main/docs/CONFIGURATION.md">Конфигурация .env</a></li>
+            <li><a href="/docs/#tls-backups">Резервное копирование</a></li>
+            <li><a href="https://github.com/mgate-server/mgate/blob/main/docs/OPERATIONS.md">Управление через CLI</a></li>
             <li><a href="https://github.com/mgate-server/mgate" target="_blank" rel="noopener">GitHub-репозиторий</a></li>
             <li><a href="https://github.com/mgate-server/mgate/releases" target="_blank" rel="noopener">Релизы</a></li>
             <li><a href="https://github.com/orgs/mgate-server/packages" target="_blank" rel="noopener">Образы (ghcr.io/mgate-server)</a></li>
@@ -394,6 +323,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/app.js?v=6bf90586ef7a-copy1"></script>
+  <script src="/assets/js/app.js?v=20261024-production"></script>
 </body>
 </html>
